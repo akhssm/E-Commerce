@@ -6,6 +6,11 @@ import CartDrawer from '../Layout/CartDrawer'
 
 const Navbar = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [navDrawerOpen, setNavDrawerOpen] = useState(false);
+
+    const toggleNavDrawer = () => {
+        setNavDrawerOpen(!navDrawerOpen);
+    };
     
     const toggleCartDrawer = () => {
         setDrawerOpen(!drawerOpen);
@@ -61,6 +66,8 @@ const Navbar = () => {
             </div>
       </nav>
       <CartDrawer drawerOpen={drawerOpen} toggleCartDrawer={toggleCartDrawer} />
+
+      {/* Mobile Navigation Drawer */}
     </>
   );
 };
