@@ -1,7 +1,13 @@
 import React from 'react'
+import Header from '../Common/Header'
 
 const UserLayout = () => {
-  return <div>User Layout</div>;
+  return (
+    <>
+      {/* Header component */}
+      <Header />
+    </>
+  )
 };
 
-export default UserLayout
+export default UserLayout;
