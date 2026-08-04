@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="relative">
+    <section className="relative mb-12">
         <img 
           src={heroImg} 
           alt="Rabbit" 
-          className="w-full h-[400px] md:h-[600px] lg:[750px] object-cover"
+          className="w-full h-[400px] md:h-[600px] lg:h-[750px] object-cover"
         />
         <div className="absolute inset-0 bg-opacity-5 flex items-center justify-center">
             <div className="text-center text-white p-6">
