@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import login from "../assets/login.webp";
+import register from "../assets/register.webp";
 
-const Login = () => {
+const Register = () => {
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("User Login:", { email, password });
+        console.log("User Registered:", { name, email, password });
     };
 
     return (
@@ -25,6 +26,16 @@ const Login = () => {
                     <p className="text-center mb-6">
                         Enter your username and password to Login.
                     </p>
+                    <div className="mb-4">
+                        <label className="block text-sm font-semibold mb-2">Name</label>
+                        <input
+                           type="text"
+                           value={name}
+                           onChange={(e) => setName(e.target.value)}
+                           className="w-full p-2 border rounded"
+                           placeholder="Enter your Name"
+                        />
+                    </div>
                     <div className="mb-4">
                         <label className="block text-sm font-semibold mb-2">Email</label>
                         <input
@@ -50,12 +61,12 @@ const Login = () => {
                       className="w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800
                       transition"
                     >
-                        Sign In
+                        Sign Up
                     </button>
                     <p className="mt-6 text-center text-sm">
                         Don't Have an account?{" "}
-                        <Link to="/register" className="text-blue-500">
-                          Register
+                        <Link to="/login" className="text-blue-500">
+                          Login
                         </Link>
                     </p>
                 </form>
@@ -63,7 +74,7 @@ const Login = () => {
             <div className="hidden md:block w-1/2 bg-gray-800">
                 <div className="h-full flex flex-col justify-center items-center">
                     <img 
-                      src={login} 
+                      src={register} 
                       alt="Login to Account"
                       className="h-[750px] w-full object-cover"
                     />
@@ -73,4 +84,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
