@@ -101,6 +101,11 @@ const CollectionPage = () => {
         >
             <FilterSidebar />
         </div>
+        <div className="flex-grow p-4">
+            <h2 className="text-2xl uppercase mb-4">All Collection</h2>
+
+            {/* Sort Options */}
+        </div>
     </div>
   );
 };
