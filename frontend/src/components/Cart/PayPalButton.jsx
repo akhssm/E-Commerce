@@ -9,7 +9,7 @@ const PayPalButton = ({ amount, onSuccess, onError }) => {
            "BAAcCiymFcL_YCmVqg4cChpVO-y0K8tvKNvQrheQ1OoAuURAGWTRJOon3saq9n7lQLVKz1Vd6yOVR-qZtU",
       }}
     >
-        <PayPalButton
+        <PayPalButtons
           style={{ layout: "vertical" }}
           createOrder={(data, actions) => {
             return actions.order.create({
