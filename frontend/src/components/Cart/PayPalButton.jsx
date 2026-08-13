@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const PayPalButton = ({ amount, onSuccess, onError }) => {
@@ -6,21 +6,21 @@ const PayPalButton = ({ amount, onSuccess, onError }) => {
     <PayPalScriptProvider
       options={{
         "client-id":
-           "BAAcCiymFcL_YCmVqg4cChpVO-y0K8tvKNvQrheQ1OoAuURAGWTRJOon3saq9n7lQLVKz1Vd6yOVR-qZtU",
+          "BAAgufIP90dssWS3GdOFZOlwilo2BJCfANeBN2duOtE3SB5S04VPRdaM3OD81hbWUF_ngy_QYnehsNzr5g",
       }}
     >
-        <PayPalButtons
-          style={{ layout: "vertical" }}
-          createOrder={(data, actions) => {
-            return actions.order.create({
-                purchase_units: [{ amount: { value: amount } }],
-            });
-          }}
-          onApprove={(data, actions) => {
-            return actions.order.capture().then(onSuccess);
-          }}
-          onError={onError}
-        />
+      <PayPalButtons
+        style={{ layout: "vertical" }}
+        createOrder={(data, actions) => {
+          return actions.order.create({
+            purchase_units: [{ amount: { value: amount } }],
+          });
+        }}
+        onApprove={(data, actions) => {
+          return actions.order.capture().then(onSuccess);
+        }}
+        onError={onError}
+      />
     </PayPalScriptProvider>
   );
 };
