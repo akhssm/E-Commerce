@@ -85,4 +85,40 @@ router.post("/", async (req, res) => {
     }
 });
 
+// @route PUT /api/cart
+// @desc Update profuct quantity in the cart for a guest or logged-in user
+// @access Public
+router.put("/", async (req, res) => {
+    const { productId, quantity, size, color, guestId, userId } = req.body;
+
+    try {
+        let cart = await getCart(userId, guestId);
+        if (!cart) return res.status(404).json({ message: "Cart not found" });
+
+        const productIndex = cart.products.findIndex(
+            (p) =>
+                p.productId.toString() === productId &&
+                p.size === size &&
+                p.color === color
+        );
+
+        if (productIndex > -1) {
+            // Update quantity
+            if (quantity > 0) {
+                cart.products[productIndex].quantity = quantity;
+            } else {
+                cart.products.splice(productIndex, 1); // Remove product if quantity is 0
+            }
+
+            cart.totalPrice = cart.products.reduce(
+                (acc, item) => acc + item.price * item.quantity,
+                0
+            );
+            await cart.save();
+        }
+    } catch (error) {
+        
+    }
+});
+
 module.exports = router;
