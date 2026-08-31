@@ -115,9 +115,13 @@ router.put("/", async (req, res) => {
                 0
             );
             await cart.save();
+            return res.status(200).json(cart);
+        } else {
+            return res.status(404).json({ message: "Product not found in cart" });
         }
     } catch (error) {
-        
+        console.error(error);
+        return res.status(500).json({ message: "Server Error" });
     }
 });
 
